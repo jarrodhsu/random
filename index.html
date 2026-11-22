@@ -51,14 +51,14 @@
 		function GetRandomNumber(Groups) {
 			// Has cookie been set?
 			var rndIndex = null;
-			if (GetCookie() != "") {
+			// if (GetCookie() != "") {
 				// Yes, get randomization from cookie.
-				rndIndex = GetCookie()
-			} else {
+			//	rndIndex = GetCookie()
+			// } else {
 				// No, set random value to cookie.
-				rndIndex = Math.floor((Math.random() * Groups));
-				SetCookie(rndIndex, 30) // Set cookie for 30 days.
-			}
+			rndIndex = Math.floor((Math.random() * Groups));
+			//	SetCookie(rndIndex, 30) // Set cookie for 30 days.
+			// }
 			return rndIndex
 		}
 
