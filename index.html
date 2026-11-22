@@ -25,9 +25,9 @@
 		// List of URLs (two or more) for the experimental treatment and control groups.
 		var RedirectURLs = {
 			"urls" : [
-				{ "url" : "http://www.aftonbladet.se/" },
-				{ "url" : "http://www.dn.se/" },
-				{ "url" : "http://www.svd.se/" }
+				{ "url" : "https://open.spotify.com/track/39LmTF9RgyakzSYX8txrow?si=KNFpHvjhRVqNleCWxqg4ig&utm_source=copy-link&sci=spotify%3Acard-config%3A2f4vj2eoGrYmnfyYBOjYZC" },
+				{ "url" : "https://open.spotify.com/track/1G1kKHczSz6Xqv5dCmtkL4?si=7e9PIHZdSjO-HAyo7ucpig&utm_source=copy-link&sci=spotify%3Acard-config%3A55K2OPlsZhhq8WL0333Pt5" },
+				{ "url" : "https://open.spotify.com/track/2JXQjdWdKhpdYYs48QEc2j?si=9GrEjiVHQFCtki7eUv_j5g&utm_source=copy-link&sci=spotify%3Acard-config%3A6DL0PCogeXmyTHOktkNIVQ" }
 			]
 		}
 
@@ -35,7 +35,7 @@
 		var Groups = RedirectURLs.urls.length;
 
 		// Randomize number and get the corresponding index for the URL in list.
-		var gotoUrl = RedirectURLs.urls[GetRandomNumber(Groups)].url
+		var gotoUrl = RedirectURLs.urls[Math.floor(Math.random() * Groups)].url
 
 		// Perform redirection.
 		if (window.location.search == "?debug") {
@@ -51,14 +51,14 @@
 		function GetRandomNumber(Groups) {
 			// Has cookie been set?
 			var rndIndex = null;
-			// if (GetCookie() != "") {
+			if (GetCookie() != "") {
 				// Yes, get randomization from cookie.
-			//	rndIndex = GetCookie()
-			// } else {
+				rndIndex = GetCookie()
+			} else {
 				// No, set random value to cookie.
 			rndIndex = Math.floor((Math.random() * Groups));
-			//	SetCookie(rndIndex, 30) // Set cookie for 30 days.
-			// }
+				SetCookie(rndIndex, 30) // Set cookie for 30 days.
+			}
 			return rndIndex
 		}
 
